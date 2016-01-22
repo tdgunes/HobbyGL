@@ -4,8 +4,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "shaders.h"
-#include "utils.h"
+#include "Shaders.h"
+#include "Utils.h"
 
 
 void Shaders_check(GLuint shaderID) {
@@ -24,8 +24,8 @@ GLuint Shaders_load(const char *vertex_file_path, const char *fragment_file_path
     GLuint vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
     GLuint fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 
-    const char *vertexShaderCode = read_file(vertex_file_path);
-    const char *fragmentShaderCode = read_file(fragment_file_path);
+    const char *vertexShaderCode = readFile(vertex_file_path);
+    const char *fragmentShaderCode = readFile(fragment_file_path);
 
     if (!vertexShaderCode || !fragmentShaderCode) {
         fprintf(stderr, "Unable read shaders!\n");
@@ -67,8 +67,8 @@ GLuint Shaders_load(const char *vertex_file_path, const char *fragment_file_path
     glDeleteShader(fragmentShaderID);
 
 
-    free(vertexShaderCode);
-    free(fragmentShaderCode);
+    delete vertexShaderCode;
+    delete fragmentShaderCode;
 
     return programID;
 }

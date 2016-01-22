@@ -6,4 +6,4 @@
 
 #include <stdint.h>
 
-const char *read_file(const char *file_name);
+const char *readFile(const char *file_name);

@@ -1,7 +1,11 @@
 #version 330 core
 
-out vec3 color;
+
+out vec4 color;
+in vec2 uvFrag;
+uniform sampler2D tex;
 
 void main() {
-    color = vec3(1,0,0);
+//    color = vec4(1.0f, 1.0f, 0.0f, 0.4f);
+    color = texture(tex, uvFrag);
 }

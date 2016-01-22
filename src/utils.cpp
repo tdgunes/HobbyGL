@@ -4,10 +4,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "utils.h"
+#include "Utils.h"
 
 
-const char *read_file(const char *file_name) {
+const char *readFile(const char *file_name) {
     char *source = NULL;
 
     FILE *file = fopen(file_name, "r");
@@ -18,7 +18,7 @@ const char *read_file(const char *file_name) {
                 fprintf(stderr, "Unable to get size of: %s\n", file_name);
             }
 
-            source = malloc(sizeof(char) * (buffer_size + 1));
+            source = (char *) malloc(sizeof(char) * (buffer_size + 1));
 
             if (fseek(file, 0L, SEEK_SET) != 0) {
                 fprintf(stderr, "Unable to go back to start of the file: %s\n", file_name);
